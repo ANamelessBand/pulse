@@ -141,8 +141,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 395617269}
   - 108: {fileID: 395617268}
+  - 114: {fileID: 395617270}
   m_Layer: 0
-  m_Name: Spotlight
+  m_Name: Torchlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,6 +196,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1006515863}
   m_RootOrder: 0
+--- !u!114 &395617270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 395617267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1813de6dca5e546ae4520f0bc9840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickering_chance: .00100000005
+  flickering_duration: 1.5
 --- !u!1001 &799778814
 Prefab:
   m_ObjectHideFlags: 0
@@ -249,6 +263,10 @@ Prefab:
     - target: {fileID: 400004, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
+      propertyPath: m_RenderingPath
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
@@ -361,7 +379,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 2
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_HDR: 0
