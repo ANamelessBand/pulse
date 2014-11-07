@@ -42,15 +42,14 @@ public class Health : MonoBehaviour {
 		this.GetComponent<CharacterController>().enabled = false;
 		this.GetComponent<CharacterMotor>().enabled = false;
 		this.GetComponent<MouseLook>().enabled = false;
-		var camera = GameObject.FindWithTag("MainCamera");
-		camera.GetComponent<MouseLook>().enabled = false;
-		camera.GetComponent<Blur>().enabled = true;
 		this.transform.position += new Vector3(0, -1, 0);
 		StartCoroutine("DyingCamera");
 	}
 
 	public IEnumerator DyingCamera() {
 		var camera = GameObject.FindWithTag("MainCamera");
+		camera.GetComponent<MouseLook>().enabled = false;
+		camera.GetComponent<Blur>().enabled = true;
 		for(float i = 0; i < dying_angle; i+= dying_angle_step) {
 			camera.transform.rotation = new Quaternion(camera.transform.rotation.x - dying_angle_step,
 		                                           camera.transform.rotation.y,
