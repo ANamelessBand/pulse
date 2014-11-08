@@ -8,12 +8,11 @@ public class Flashlight : MonoBehaviour {
 	public float batteryPower;
 	public float maxIntensity = 0.5F;
 	public float minIntensity = 0.15F;
-	public bool flickerEnabled;
 
 	// Use this for initialization
 	void Start () {
 		hasFlashlight = false;
-		batteryPower = 0;
+		batteryPower = maxBatteryPower / 2;
 	}
 	
 	// Update is called once per frame
@@ -22,7 +21,7 @@ public class Flashlight : MonoBehaviour {
 			var light = this.gameObject.GetComponent<Light>();
 			light.enabled = true;
 			light.intensity = minIntensity + (batteryPower / maxBatteryPower) * (maxIntensity - minIntensity);
-			batteryPower--;
+			batteryPower -= Time.deltaTime;
 		}
 	}
 	
