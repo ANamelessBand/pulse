@@ -19,6 +19,7 @@ namespace AssemblyCSharp
                 while (true)
                 {
                     beat.updateADCValue(readADC5());
+                    Thread.Sleep(5);
                 }
             }
         }
