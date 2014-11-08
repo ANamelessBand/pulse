@@ -142,6 +142,7 @@ GameObject:
   - 4: {fileID: 395617269}
   - 108: {fileID: 395617268}
   - 114: {fileID: 395617270}
+  - 114: {fileID: 395617271}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -207,8 +208,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1813de6dca5e546ae4520f0bc9840b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  base_flickering_chance: .00300000003
+  base_flickering_duration: .0500000007
   flickering_chance: .00100000005
   flickering_duration: .00999999978
+  is_flickering: 0
+--- !u!114 &395617271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 395617267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d46d4094f15eb4a8fa113d17310a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasFlashlight: 1
+  maxBatteryPower: 60
+  batteryPower: 0
+  maxIntensity: .5
+  minIntensity: .150000006
 --- !u!1001 &799778814
 Prefab:
   m_ObjectHideFlags: 0
@@ -669,6 +689,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2a28f24700cf5f7458880895f1ed219a, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a28f24700cf5f7458880895f1ed219a, type: 2}
   m_RootGameObject: {fileID: 1780765278}
@@ -902,6 +926,7 @@ GameObject:
   - 114: {fileID: 1961760199}
   - 82: {fileID: 1961760198}
   - 114: {fileID: 1961760200}
+  - 114: {fileID: 1961760201}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1137,6 +1162,18 @@ MonoBehaviour:
   heartState: 0
   currentRate: 0
   baseLine: 0
+--- !u!114 &1961760201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1961760191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0653b04081dfc4b8663c32ced39e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 100000, guid: 2a28f24700cf5f7458880895f1ed219a, type: 2}
 --- !u!1 &2044041629
 GameObject:
   m_ObjectHideFlags: 0
