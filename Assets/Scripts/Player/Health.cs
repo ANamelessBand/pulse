@@ -5,10 +5,38 @@ public class Health : MonoBehaviour {
 	public float max_health = 100;
 	public float current_health;
 
+	public float in_combat_max = 5;
+	public float in_combat = 0;
+	public float regen_rate = 0.1F;
+
 	public float dying_angle_step = 0.1F;
 	public float dying_angle = 30;
 
 	private bool is_dead;
+	public float CurrentHealth() {
+		return current_health;
+	}
+
+	public float MissingHealth() {
+		return max_health - current_health;
+	}
+
+	public float MaxHealth() {
+		return max_health;
+	}
+
+	public float MissingHealthRatio() {
+		return MissingHealth() / MaxHealth();
+	}
+
+	public float CurrentHealthRatio() {
+		return CurrentHealth() / MaxHealth();
+	}
+
+	public bool IsDead() {
+		return is_dead;
+	}
+	
 	void Start () {
 		is_dead = false;
 		current_health = max_health;
@@ -18,16 +46,34 @@ public class Health : MonoBehaviour {
 		if(is_dead) {
 			return;
 		}
+
 		if(Input.GetKeyDown(KeyCode.K)) {
 			TakeDamage(20);
+		}
+
+		RegenHealth();
+	}
+
+	public void RegenHealth() {
+		if(in_combat > 0) {
+			in_combat -= Time.deltaTime;
+		} else {
+			if(current_health < max_health) {
+				current_health += regen_rate;
+			}
+			
+			if(current_health > max_health) {
+				current_health = max_health;
+			}
 		}
 	}
 
 	public void TakeDamage(float damage) {
-		if(damage < 0) {
+		if(damage <= 0) {
 			return;
 		}
 
+		in_combat = in_combat_max;
 		current_health -= damage;
 		if(current_health <= 0) {
 			Die();
@@ -39,6 +85,7 @@ public class Health : MonoBehaviour {
 			return;
 		}
 
+		current_health = 0;
 		GameObject.Find("GameOverText").GetComponent<GUIText>().enabled = true;
 		is_dead = true;
 		this.GetComponent<CharacterController>().enabled = false;

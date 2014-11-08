@@ -30,6 +30,7 @@ public class HeartMonitor : MonoBehaviour
 		initialized = false;
 		initialMeasureCount = 0;
 		initialMeasureSum = 0;
+		baseLine = 70;
 		dataProvider = new HeartDataProvider ();
 	}
 	
