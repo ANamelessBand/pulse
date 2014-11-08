@@ -8,17 +8,14 @@ public abstract class Interactable : MonoBehaviour {
 	protected GameObject player;
 	public virtual void Start() {
 		player = GameObject.FindWithTag ("Player");
-		maxDistance = 10;
+		maxDistance = 2.5f;
 	}
 
 	public virtual void Update () {
 		if (Input.GetKey(KeyCode.E)) {
 			Transform playerTransform = player.transform;
 			Transform objTransfrom = this.gameObject.transform;
-			Physics.Raycast(objTransfrom.position, playerTransform.position - objTransfrom.position, out hit, float.MaxValue);
-			Debug.Log(hit.collider);
-			Debug.Log(hit.distance);
-			Debug.Log (player.GetInstanceID());
+			Physics.Raycast(objTransfrom.position, playerTransform.position - objTransfrom.position, out hit, maxDistance);
 			if(hit.collider && hit.collider.gameObject.GetInstanceID() == player.GetInstanceID()) {
 				this.Interact();
 			}
