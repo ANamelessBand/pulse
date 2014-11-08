@@ -289,7 +289,6 @@ GameObject:
   - 45: {fileID: 1006515869}
   - 114: {fileID: 1006515870}
   - 114: {fileID: 1006515871}
-  - 114: {fileID: 1006515872}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -436,21 +435,6 @@ MonoBehaviour:
   shaderFXAAPreset3: {fileID: 4800000, guid: c182fa94a5a0a4c02870641efcd38cd5, type: 3}
   shaderFXAAII: {fileID: 4800000, guid: cd5b323dcc592457790ff18b528f5e67, type: 3}
   shaderFXAAIII: {fileID: 4800000, guid: c547503fff0e8482ea5793727057041c, type: 3}
---- !u!114 &1006515872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1006515862}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdda781cad112c75d0008dfa8d76c639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: 641b781cad112c75d0008dfa8d76c639, type: 3}
-  radius: {x: .300000012, y: .300000012}
-  angle: 50
-  center: {x: .5, y: .5}
 --- !u!1 &1041791314
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,13 +820,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walk_speed: 7
-  run_speed: 20
+  run_speed: 14
   peak_walk_speed: 10
-  peak_run_speed: 30
+  peak_run_speed: 20
   current_walk_speed: 0
   current_run_speed: 0
   max_stamina: 5
-  min_stamina: 1
+  min_stamina: 2.5
   current_stamina: 0
 --- !u!82 &1961760198
 AudioSource:
