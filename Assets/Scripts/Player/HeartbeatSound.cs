@@ -17,7 +17,7 @@ public class HeartbeatSound : MonoBehaviour {
 
 	void Update () {
 		audio.pitch = heart_monitor.currentRate / audio_beats_per_minute;
-		var audio_modified = (1 - base_volume) * ((health.max_health - health.current_health) / health.max_health);
+		var audio_modified = (1 - base_volume) * health.MissingHealthRatio();
 		audio.volume = base_volume + audio_modified;
 	}
 }

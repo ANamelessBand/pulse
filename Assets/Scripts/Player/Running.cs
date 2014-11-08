@@ -49,7 +49,6 @@ public class Running : MonoBehaviour
 		    (is_running && current_stamina > 0)))
 		{
 			if (!is_running) {
-				Debug.Log ("start running");
 				toggleRunning();
 			}
 			is_running = true;
@@ -57,7 +56,6 @@ public class Running : MonoBehaviour
 			current_stamina -= Time.deltaTime; 
 		} else {
 			if (is_running) {
-				Debug.Log ("start walking");
 				toggleWalking();
 			}
 			is_running = false;
