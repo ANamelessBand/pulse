@@ -13,7 +13,7 @@ public class Flashlight : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		hasFlashlight = false;
+		hasFlashlight = true;
 		batteryPower = maxBatteryPower / 2;
 
 		lightFlickering = gameObject.GetComponent<LightFlickering>();
