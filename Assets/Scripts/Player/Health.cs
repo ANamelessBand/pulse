@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class Health : MonoBehaviour {
-	public double max_health = 100;
-	public double current_health;
+	public float max_health = 100;
+	public float current_health;
 
 	public float dying_angle_step = 0.1F;
 	public float dying_angle = 30;
@@ -23,7 +23,7 @@ public class Health : MonoBehaviour {
 		}
 	}
 
-	public void TakeDamage(double damage) {
+	public void TakeDamage(float damage) {
 		if(damage < 0) {
 			return;
 		}
@@ -38,6 +38,8 @@ public class Health : MonoBehaviour {
 		if(is_dead) {
 			return;
 		}
+
+		GameObject.Find("GameOverText").GetComponent<GUIText>().enabled = true;
 		is_dead = true;
 		this.GetComponent<CharacterController>().enabled = false;
 		this.GetComponent<CharacterMotor>().enabled = false;
