@@ -7,7 +7,7 @@ public class LightFlickering : MonoBehaviour {
 	
 	
 	void Update () {
-		if(Random.Range(0.0F, 1.0F) < flickering_chance) {
+		if(light.enabled && Random.Range(0.0F, 1.0F) < flickering_chance) {
 			StartCoroutine("Flicker");
 		}
 	}

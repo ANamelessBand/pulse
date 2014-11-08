@@ -143,7 +143,7 @@ GameObject:
   - 108: {fileID: 395617268}
   - 114: {fileID: 395617270}
   m_Layer: 0
-  m_Name: Torchlight
+  m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flickering_chance: .00100000005
-  flickering_duration: 1.5
+  flickering_duration: .00999999978
 --- !u!1001 &799778814
 Prefab:
   m_ObjectHideFlags: 0
