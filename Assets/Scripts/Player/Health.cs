@@ -47,10 +47,6 @@ public class Health : MonoBehaviour {
 			return;
 		}
 
-		if(Input.GetKeyDown(KeyCode.K)) {
-			TakeDamage(20);
-		}
-
 		RegenHealth();
 	}
 
