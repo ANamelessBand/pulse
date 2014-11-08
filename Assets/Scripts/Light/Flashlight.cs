@@ -18,7 +18,6 @@ public class Flashlight : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(hasFlashlight && batteryPower > 0) {
-			var light = this.gameObject.GetComponent<Light>();
 			light.enabled = true;
 			light.intensity = minIntensity + (batteryPower / maxBatteryPower) * (maxIntensity - minIntensity);
 			batteryPower -= Time.deltaTime;
