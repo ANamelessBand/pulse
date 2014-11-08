@@ -5,6 +5,12 @@ public class Running : MonoBehaviour
 {
 	public float walk_speed = 7;
 	public float run_speed = 20;
+
+	public float peak_walk_speed = 10;
+	public float peak_run_speed = 30;
+	
+	public float current_walk_speed;
+	public float current_run_speed;
 	
 	public float max_stamina = 5;
 	public float min_stamina = 2;
@@ -12,8 +18,7 @@ public class Running : MonoBehaviour
 
 	private bool is_running = false;
 	private CharacterMotor character_motor;
-
-
+	
 	private AudioClip footstep_walk;
 	private AudioClip footstep_run;
 
@@ -27,12 +32,16 @@ public class Running : MonoBehaviour
 
 		audio.clip = footstep_walk;
 
-		this.current_stamina = this.current_stamina;
+		this.current_stamina = this.max_stamina;
+
+		current_run_speed = run_speed;
+		current_walk_speed = walk_speed;
 	}
 
 	void FixedUpdate ()
 	{
-		float speed = walk_speed;
+		UpdateSpeed ();
+		float speed = current_walk_speed;
 		
 		if (Input.GetKey(KeyCode.LeftShift) &&
 		    character_motor.grounded &&
@@ -44,7 +53,7 @@ public class Running : MonoBehaviour
 				toggleRunning();
 			}
 			is_running = true;
-			speed = run_speed;
+			speed = current_run_speed;
 			current_stamina -= Time.deltaTime; 
 		} else {
 			if (is_running) {
@@ -103,5 +112,18 @@ public class Running : MonoBehaviour
 
 	bool isRunning() {
 		return is_running;
+	}
+
+	private void UpdateSpeed()
+	{
+		if (gameObject.GetComponent<HeartMonitor> ().IsAtPeak ()) {
+			current_run_speed = peak_run_speed;
+			current_walk_speed = peak_walk_speed;
+		} 
+		else
+		{
+			current_run_speed = run_speed;
+			current_walk_speed = walk_speed;
+		}
 	}
 }

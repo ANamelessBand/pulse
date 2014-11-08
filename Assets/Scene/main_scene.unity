@@ -601,6 +601,7 @@ GameObject:
   - 114: {fileID: 1961760197}
   - 114: {fileID: 1961760199}
   - 82: {fileID: 1961760198}
+  - 114: {fileID: 1961760200}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -737,6 +738,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walk_speed: 7
   run_speed: 20
+  peak_walk_speed: 10
+  peak_run_speed: 30
+  current_walk_speed: 0
+  current_run_speed: 0
   max_stamina: 5
   min_stamina: 1
   current_stamina: 0
@@ -813,3 +818,18 @@ MonoBehaviour:
   current_health: 0
   dying_angle_step: .100000001
   dying_angle: 30
+--- !u!114 &1961760200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1961760191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e157712b2eba61847a4691cd15e22a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PEAK_OFFSET: 20
+  heartState: 0
+  currentRate: 0
+  baseLine: 0
