@@ -142,6 +142,7 @@ GameObject:
   - 4: {fileID: 395617269}
   - 108: {fileID: 395617268}
   - 114: {fileID: 395617270}
+  - 114: {fileID: 395617271}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -207,8 +208,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1813de6dca5e546ae4520f0bc9840b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  base_flickering_chance: .00300000003
+  base_flickering_duration: .0500000007
   flickering_chance: .00100000005
   flickering_duration: .00999999978
+  is_flickering: 0
+--- !u!114 &395617271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 395617267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d46d4094f15eb4a8fa113d17310a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasFlashlight: 1
+  maxBatteryPower: 60
+  batteryPower: 0
+  maxIntensity: .5
+  minIntensity: .150000006
 --- !u!1001 &799778814
 Prefab:
   m_ObjectHideFlags: 0
