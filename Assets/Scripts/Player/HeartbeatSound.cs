@@ -2,9 +2,8 @@
 using System.Collections;
 
 public class HeartbeatSound : MonoBehaviour {
-
+	public const float audio_size = 0.72F;
 	private AudioClip heartbeat;
-	private const float audio_beats_per_minute = 120.0F;
 	private const float base_volume = 0.5F;
 
 	private HeartMonitor heart_monitor;
@@ -16,7 +15,7 @@ public class HeartbeatSound : MonoBehaviour {
 	}
 
 	void Update () {
-		audio.pitch = heart_monitor.currentRate / audio_beats_per_minute;
+		audio.pitch = heart_monitor.currentRate / (60.0F / audio_size);
 		var audio_modified = (1 - base_volume) * health.MissingHealthRatio();
 		audio.volume = base_volume + audio_modified;
 	}
