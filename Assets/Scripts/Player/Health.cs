@@ -82,6 +82,8 @@ public class Health : MonoBehaviour {
 			return;
 		}
 
+		GameObject.Find ("Heart").GetComponent<AudioSource> ().audio.Stop ();
+		GameObject.Find ("Dying").GetComponent<AudioSource> ().audio.Play ();
 		current_health = 0;
 		GameObject.Find("GameOverText").GetComponent<GUIText>().enabled = true;
 		is_dead = true;
