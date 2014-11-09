@@ -42,7 +42,7 @@ public class TextureTilingController : MonoBehaviour {
 		//float textureToMeshX = ((float)this.texture.width/this.texture.height)*this.textureToMeshZ;
 
 		// gameObject.renderer.material.SetTextureScale ("", new Vector2 (1.0f .x, 1.0f / gameObject.transform.lossyScale.z));
-		gameObject.renderer.sharedMaterial.mainTextureScale = gameObject.transform.lossyScale * -1;
+		gameObject.renderer.material.mainTextureScale = gameObject.transform.lossyScale * -1;
 		//transform.renderer.material.mainTextureScale = new Vector2(XScale , YScale );
 		// gameObject.renderer.material.mainTextureScale = new Vector2(1.0f,1.0f);
 	}

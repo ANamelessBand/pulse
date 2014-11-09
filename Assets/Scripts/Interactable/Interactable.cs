@@ -16,6 +16,7 @@ public abstract class Interactable : MonoBehaviour {
 			Transform playerTransform = player.transform;
 			Transform objTransfrom = this.gameObject.transform;
 			Physics.Raycast(objTransfrom.position, playerTransform.position - objTransfrom.position, out hit, maxDistance);
+			Debug.Log(hit.collider.gameObject.name);
 			if(hit.collider && hit.collider.gameObject.GetInstanceID() == player.GetInstanceID()) {
 				this.Interact();
 			}
