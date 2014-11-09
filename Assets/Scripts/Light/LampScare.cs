@@ -6,7 +6,6 @@ public class LampScare : MonoBehaviour {
 	private LightController light_controller;
 
 	public GameObject enemy;
-	public bool is_active = false;
 	public float delay_between_lights = 0.5F;
 	public bool is_real = false;
 
@@ -15,14 +14,7 @@ public class LampScare : MonoBehaviour {
 		light_controller = this.gameObject.GetComponentInChildren<LightController>();
 	}
 
-	void Update () {
-		if (!is_active && Input.GetKeyDown(KeyCode.T)) {
-			is_active = true;
-			Activate ();
-		}
-	}
-
-	void Activate() {
+	public void ActivateScare() {
 		StartCoroutine("PlayScare");
 	}
 

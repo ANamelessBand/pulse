@@ -26,6 +26,9 @@ public class HeartMonitor : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		var bracelet = new FeedbackBracelet();
+		bracelet.setVibration(false);
+		bracelet.setLeds(new bool[] {true, true, false, true, false, true});
 		heartState = HeartState.NORMAL;
 		initialized = false;
 		initialMeasureCount = 0;

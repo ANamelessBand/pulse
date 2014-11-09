@@ -29,11 +29,11 @@ public class JumpScare : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown(KeyCode.R)) {
-			Activate();
+			ActivateScare();
 		}
 	}
 
-	void Activate() {
+	void ActivateScare() {
 		is_active = true;
 		original_angel = main_camera.transform.rotation;
 	}
