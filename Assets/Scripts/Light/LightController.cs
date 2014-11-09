@@ -3,9 +3,11 @@ using System.Collections;
 
 public class LightController : MonoBehaviour {
 	private LightFlickering light_flickering;
+	private AudioSource circuit_component;
 	public bool is_disabled = false;
 	void Start () {
 		light_flickering = this.gameObject.GetComponent<LightFlickering>();
+		circuit_component = this.gameObject.GetComponent<AudioSource>();
 	}
 	
 	void Update () {
@@ -18,6 +20,9 @@ public class LightController : MonoBehaviour {
 
 	public void TurnOff() {
 		is_disabled = true;
+		if(circuit_component != null) {
+			circuit_component.Play();
+		}
 	}
 
 	public void TurnOn() {
