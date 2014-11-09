@@ -7,7 +7,7 @@ public class Health : MonoBehaviour {
 
 	public float in_combat_max = 5;
 	public float in_combat = 0;
-	public float regen_rate = 0.01F;
+	public float regen_rate = 0.1F;
 
 	public float dying_angle_step = 0.1F;
 	public float dying_angle = 30;
