@@ -36,7 +36,8 @@ public class JumpScare : MonoBehaviour {
 	}
 
 	void ActivateScare() {
-		player.GetComponent<LedBracelet>().is_mocked = true;
+		Debug.Log ("Scared");
+		//player.GetComponent<LedBracelet>().is_mocked = true;
 		is_active = true;
 		original_angel = main_camera.transform.rotation;
 	}
