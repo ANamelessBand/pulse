@@ -903,6 +903,8 @@ MonoBehaviour:
   current_reload: 0
   ai_normal_speed: 5
   ai_enraged_speed: 10
+  ai_enraged_distance: 15
+  ai_enraged_angle: 150
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -912,7 +914,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .5
+  m_Radius: 1
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
