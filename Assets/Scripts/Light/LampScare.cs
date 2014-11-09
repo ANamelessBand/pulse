@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LampScare : MonoBehaviour {
 	private GameObject player;
-	private Light light_component;
+	private LightController light_controller;
 
 	public GameObject enemy;
 	public bool is_active = false;
@@ -12,7 +12,7 @@ public class LampScare : MonoBehaviour {
 
 	void Start () {
 		player = GameObject.FindWithTag("Player");
-		light_component = this.gameObject.GetComponentInChildren<Light>();
+		light_controller = this.gameObject.GetComponentInChildren<LightController>();
 	}
 
 	void Update () {
@@ -27,33 +27,33 @@ public class LampScare : MonoBehaviour {
 	}
 
 	IEnumerator PlayScare() {
-		light_component.enabled = false;
+		light_controller.TurnOff();
 		yield return new WaitForSeconds(delay_between_lights);
 		var enemy_object = (GameObject)
 			Instantiate(enemy,
 			            transform.position - new Vector3(0, 5, 0),
 			            Quaternion.identity);
 		enemy_object.transform.LookAt(player.transform.position);
-		light_component.enabled = true;
+		light_controller.TurnOn();
 		yield return new WaitForSeconds(delay_between_lights);
-		light_component.enabled = false;
+		light_controller.TurnOff();
 		Destroy(enemy_object);
 		yield return new WaitForSeconds(delay_between_lights);
-		light_component.enabled = true;
+		light_controller.TurnOn();
 
 		if(is_real) {
-			light_component.enabled = false;
+			light_controller.TurnOff();
 			yield return new WaitForSeconds(delay_between_lights);
 			enemy_object = (GameObject)
 				Instantiate(enemy,
 				            transform.position - new Vector3(0, 5, 0),
 				            Quaternion.identity);
 			enemy_object.transform.LookAt(player.transform.position);
-			light_component.enabled = true;
+			light_controller.TurnOn();
 			yield return new WaitForSeconds(delay_between_lights);
-			light_component.enabled = false;
+			light_controller.TurnOff();
 			yield return new WaitForSeconds(delay_between_lights);
-			light_component.enabled = true;
+			light_controller.TurnOn();
 		}
 	}
 }
