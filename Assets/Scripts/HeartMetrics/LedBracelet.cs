@@ -11,6 +11,7 @@ public class LedBracelet : MonoBehaviour {
 		try {
 			bracelet = new AssemblyCSharp.FeedbackBracelet();
 		} catch(System.Exception e) {
+			Debug.Log(e.InnerException.Message);
 		}
 	}
 

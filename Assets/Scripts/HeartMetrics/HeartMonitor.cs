@@ -33,6 +33,7 @@ public class HeartMonitor : MonoBehaviour
 		baseLine = 70;
 		try {
 			dataProvider = new ControllerDataProvider ();
+			//dataProvider = new HeartDataProvider();
 		} catch(System.Exception e) {
 			Debug.Log(e.InnerException.Message);
 			dataProvider = new HeartDataProvider();
