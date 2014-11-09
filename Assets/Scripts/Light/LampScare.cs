@@ -8,6 +8,7 @@ public class LampScare : MonoBehaviour {
 	public GameObject enemy;
 	public bool is_active = false;
 	public float delay_between_lights = 0.5F;
+	public bool is_real = false;
 
 	void Start () {
 		player = GameObject.FindWithTag("Player");
@@ -39,5 +40,20 @@ public class LampScare : MonoBehaviour {
 		Destroy(enemy_object);
 		yield return new WaitForSeconds(delay_between_lights);
 		light_component.enabled = true;
+
+		if(is_real) {
+			light_component.enabled = false;
+			yield return new WaitForSeconds(delay_between_lights);
+			enemy_object = (GameObject)
+				Instantiate(enemy,
+				            transform.position - new Vector3(0, 5, 0),
+				            Quaternion.identity);
+			enemy_object.transform.LookAt(player.transform.position);
+			light_component.enabled = true;
+			yield return new WaitForSeconds(delay_between_lights);
+			light_component.enabled = false;
+			yield return new WaitForSeconds(delay_between_lights);
+			light_component.enabled = true;
+		}
 	}
 }
