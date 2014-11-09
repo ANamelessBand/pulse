@@ -8,8 +8,11 @@ public class EnemyAI : MonoBehaviour {
 	public float current_reload = 0F;
 	public float ai_normal_speed = 5F;
 	public float ai_enraged_speed = 10F;
+	public float ai_enraged_distance = 15F;
+	public float ai_enraged_angle = 150F;
 
 	private GameObject player;
+	private GameObject flashlight;
 	private NavMeshAgent agent;
 	private HeartMonitor heart_monitor;
 	private Health health;
@@ -18,11 +21,21 @@ public class EnemyAI : MonoBehaviour {
 		player = GameObject.FindWithTag("Player");
 		heart_monitor = player.GetComponent<HeartMonitor>();
 		health = player.GetComponent<Health>();
+		flashlight = GameObject.Find("Flashlight");
 		agent = this.gameObject.GetComponent<NavMeshAgent>();
 		current_reload = 0;
 	}
 
 	bool isLit() {
+		if (!flashlight.light.enabled) {
+			return false;
+		}
+		var distance = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
+		var angle = Quaternion.Angle(player.transform.rotation, gameObject.transform.rotation);
+		if(distance < ai_enraged_distance && angle > ai_enraged_angle) {
+			return true;
+		}
+
 		return false;
 	}
 

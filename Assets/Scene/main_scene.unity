@@ -4280,6 +4280,8 @@ MonoBehaviour:
   current_reload: 0
   ai_normal_speed: 5
   ai_enraged_speed: 10
+  ai_enraged_distance: 15
+  ai_enraged_angle: 150
 --- !u!23 &1780765281
 Renderer:
   m_ObjectHideFlags: 0
