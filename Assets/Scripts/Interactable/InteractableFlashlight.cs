@@ -5,6 +5,7 @@ public class InteractableFlashlight : Interactable {
 
 	public override void Interact() {
 		GameObject.FindWithTag ("Flashlight").light.enabled = true;
+		this.gameObject.GetComponent<AudioSource>().Play();
 		Destroy(this.gameObject);
 	}
 }

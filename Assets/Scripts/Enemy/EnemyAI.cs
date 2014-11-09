@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour {
 	public float ai_enraged_speed = 10F;
 	public float ai_enraged_distance = 15F;
 	public float ai_enraged_angle = 150F;
+	public float distance_to_engage = 30F;	
 
 	private GameObject player;
 	private GameObject flashlight;
@@ -41,7 +42,7 @@ public class EnemyAI : MonoBehaviour {
 
 	void FixedUpdate () {
 		var distance = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
-		if (distance >= attacking_distance) {
+		if (distance >= attacking_distance && distance < distance_to_engage) {
 			agent.speed = Mathf.Min(isLit() ? this.ai_enraged_speed : this.ai_normal_speed, distance - attacking_distance + 5F);
 			agent.SetDestination(player.transform.position);
 		} else {
