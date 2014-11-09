@@ -618,8 +618,8 @@ MonoBehaviour:
   base_damage: 10
   reload: 3
   current_reload: 0
-  ai_normal_speed: 5
-  ai_enraged_speed: 10
+  ai_normal_speed: 2.70000005
+  ai_enraged_speed: 4.5999999
   ai_enraged_distance: 15
   ai_enraged_angle: 150
   distance_to_engage: 30

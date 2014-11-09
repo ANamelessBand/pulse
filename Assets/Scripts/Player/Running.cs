@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Running : MonoBehaviour 
 {
-	public float walk_speed = 7;
-	public float run_speed = 20;
+	public float walk_speed = 3f;
+	public float run_speed = 4.5f;
 
-	public float peak_walk_speed = 10;
-	public float peak_run_speed = 30;
+	public float peak_walk_speed = 3.2f;
+	public float peak_run_speed = 5f;
 	
 	public float current_walk_speed;
 	public float current_run_speed;

@@ -6,8 +6,8 @@ public class EnemyAI : MonoBehaviour {
 	public float base_damage = 10F;
 	public float reload = 3F;
 	public float current_reload = 0F;
-	public float ai_normal_speed = 5F;
-	public float ai_enraged_speed = 10F;
+	public float ai_normal_speed = 2.7F;
+	public float ai_enraged_speed = 4.6F;
 	public float ai_enraged_distance = 15F;
 	public float ai_enraged_angle = 150F;
 	public float distance_to_engage = 30F;	
