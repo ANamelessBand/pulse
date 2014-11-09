@@ -37,8 +37,13 @@ public class EnemyAI : MonoBehaviour {
 	}
 
 	void Update () {
-		var distance_to_player = Vector3.Distance(player.transform.position, gameObject.transform.position);
-		if (!health.IsDead() && distance_to_player < attacking_distance && current_reload == 0) {
+		RaycastHit hit;
+		Physics.Raycast(gameObject.collider.bounds.center,
+		                player.collider.bounds.center - gameObject.collider.bounds.center, 
+		                out hit, attacking_distance);
+		if (!health.IsDead() && hit.distance != 0 &&
+		    hit.collider.GetInstanceID() == player.collider.GetInstanceID() &&
+		    current_reload == 0) {
 			DealDamage();
 		} else {
 			Reload();
