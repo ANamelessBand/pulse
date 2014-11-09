@@ -31,7 +31,12 @@ public class HeartMonitor : MonoBehaviour
 		initialMeasureCount = 0;
 		initialMeasureSum = 0;
 		baseLine = 70;
-		dataProvider = new HeartDataProvider ();
+		try {
+			dataProvider = new ControllerDataProvider ();
+		} catch(System.Exception e) {
+			Debug.Log(e.InnerException.Message);
+			dataProvider = new HeartDataProvider();
+		}
 	}
 	
 	// Update is called once per frame

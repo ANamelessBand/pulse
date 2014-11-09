@@ -22,10 +22,12 @@ public class JumpScare : MonoBehaviour {
 			            Quaternion.Inverse(original_angel));
 			is_active = false;
 			looked_back = false;
+
 		}
 
 		if (is_active && Quaternion.Angle(main_camera.transform.rotation, original_angel) > 150) {
 			looked_back = true;
+			player.GetComponent<LedBracelet>().is_mocked = false;
 		}
 
 		if (Input.GetKeyDown(KeyCode.R)) {
@@ -34,6 +36,7 @@ public class JumpScare : MonoBehaviour {
 	}
 
 	void ActivateScare() {
+		player.GetComponent<LedBracelet>().is_mocked = true;
 		is_active = true;
 		original_angel = main_camera.transform.rotation;
 	}
