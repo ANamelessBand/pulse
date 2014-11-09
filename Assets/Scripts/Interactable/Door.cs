@@ -31,6 +31,7 @@ public class Door : Interactable {
 		if (timeToActive <= 0) {
 			timeToActive = timeInactive;
 			isMoving = true;
+			this.gameObject.GetComponent<AudioSource>().Play();
 		}
 	}
 }

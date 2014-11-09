@@ -69,6 +69,7 @@ public class Health : MonoBehaviour {
 			return;
 		}
 
+		GameObject.Find ("Bite").GetComponent<AudioSource>().Play();
 		in_combat = in_combat_max;
 		current_health -= damage;
 		if(current_health <= 0) {

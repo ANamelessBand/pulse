@@ -8,7 +8,7 @@ public class FlashlightBatteries : Interactable {
 		if (flashlight.hasFlashlight) {
 			flashlight.refreshBatteries();
 			this.gameObject.GetComponent<AudioSource>().Play();
-			Destroy (this.gameObject);
+			Destroy (this.gameObject, 0.5f);
 		}
 	}
 }
