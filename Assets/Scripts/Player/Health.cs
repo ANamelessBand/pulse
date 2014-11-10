@@ -48,6 +48,10 @@ public class Health : MonoBehaviour {
 		}
 
 		RegenHealth();
+
+		if(Input.GetKeyDown(KeyCode.Y)) {
+			Die ();
+		}
 	}
 
 	public void RegenHealth() {

@@ -15,7 +15,8 @@ public class HeartMonitor : MonoBehaviour
 
 	private int initialMeasureSum;
 
-	private IHeartDataProvider dataProvider;
+	public IHeartDataProvider dataProvider;
+	public ControllerDataProvider controllerDataProvider;
 
 	public HeartState heartState;
 
@@ -33,6 +34,7 @@ public class HeartMonitor : MonoBehaviour
 		baseLine = 70;
 		try {
 			dataProvider = new ControllerDataProvider ();
+			controllerDataProvider = (ControllerDataProvider)dataProvider;
 			//dataProvider = new HeartDataProvider();
 		} catch(System.Exception e) {
 			Debug.Log(e.InnerException.Message);

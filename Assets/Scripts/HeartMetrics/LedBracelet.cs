@@ -2,20 +2,22 @@
 using System.Collections;
 
 public class LedBracelet : MonoBehaviour {
-	private AssemblyCSharp.FeedbackBracelet bracelet;
 	private float max_Distance = 15F;
 
 	public bool is_mocked = false;
 
 	void Start () {
-		try {
-			bracelet = new AssemblyCSharp.FeedbackBracelet();
-		} catch(System.Exception e) {
-			Debug.Log(e.InnerException.Message);
-		}
+
 	}
 
 	void Update () {
+		AssemblyCSharp.ControllerDataProvider bracelet = null;
+		try {
+			bracelet = GameObject.FindWithTag("Player").GetComponent<HeartMonitor>().controllerDataProvider;
+		} catch(System.Exception e) {
+			Debug.Log(e.Message);
+		}
+
 		if(bracelet == null)
 			return;
 
