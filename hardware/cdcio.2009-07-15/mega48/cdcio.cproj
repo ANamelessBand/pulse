@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.0</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8</ToolchainName>
+    <ProjectGuid>c815ab71-f021-4868-a927-5c6b22bc181c</ProjectGuid>
+    <Name>cdcio</Name>
+    <avrdevice>ATmega8</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <AvrProjectType>Importer</AvrProjectType>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>cdcio</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <avrtool />
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <OverrideVtorValue />
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'default' ">
+    <OutputPath>bin\default\</OutputPath>
+    <ToolchainSettings>
+      <AvrGcc xmlns="">
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+  <avrgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>F_CPU=12000000UL</Value>
+    </ListValues>
+  </avrgcc.compiler.symbols.DefSymbols>
+  <avrgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>..\.</Value>
+      <Value>..\..\usbdrv</Value>
+    </ListValues>
+  </avrgcc.compiler.directories.IncludePaths>
+  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.warnings.AllWarnings>true</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.compiler.miscellaneous.OtherFlags>-gdwarf-2 -fsigned-char </avrgcc.compiler.miscellaneous.OtherFlags>
+  <avrgcc.assembler.general.AssemblerFlags>-Wall -gdwarf-2 -DF_CPU=12000000UL -Os -fsigned-char</avrgcc.assembler.general.AssemblerFlags>
+  <avrgcc.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>..\.</Value>
+      <Value>..\..\usbdrv</Value>
+    </ListValues>
+  </avrgcc.assembler.general.IncludePaths>
+</AvrGcc>
+    </ToolchainSettings>
+    <UsesExternalMakeFile>False</UsesExternalMakeFile>
+    <ExternalMakeFilePath>C:\Users\Pesho\Desktop\cdcio.2009-07-15\cdcio.2009-07-15\mega48\default\Makefile</ExternalMakeFilePath>
+  </PropertyGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+  <ItemGroup>
+    <Compile Include="usbconfig.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="..\usbdrv\oddebug.h">
+      <SubType>compile</SubType>
+      <Link>oddebug.h</Link>
+    </Compile>
+    <Compile Include="..\usbdrv\usbdrv.h">
+      <SubType>compile</SubType>
+      <Link>usbdrv.h</Link>
+    </Compile>
+    <Compile Include="..\usbdrv\usbportability.h">
+      <SubType>compile</SubType>
+      <Link>usbportability.h</Link>
+    </Compile>
+    <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="..\usbdrv\usbdrvasm.S">
+      <SubType>compile</SubType>
+      <Link>usbdrvasm.S</Link>
+    </Compile>
+    <Compile Include="..\usbdrv\oddebug.c">
+      <SubType>compile</SubType>
+      <Link>oddebug.c</Link>
+    </Compile>
+    <Compile Include="..\usbdrv\usbdrv.c">
+      <SubType>compile</SubType>
+      <Link>usbdrv.c</Link>
+    </Compile>
+  </ItemGroup>
+</Project>
